@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=assignment_1_project_3.10
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/assignment_1_project_3.10
+CND_ARTIFACT_NAME_Debug=assignment_1_project_3.12
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/assignment_1_project_3.12
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=assignment1project3.10.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/assignment1project3.10.tar
+CND_PACKAGE_NAME_Debug=assignment1project3.12.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/assignment1project3.12.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=assignment_1_project_3.10
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/assignment_1_project_3.10
+CND_ARTIFACT_NAME_Release=assignment_1_project_3.12
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/assignment_1_project_3.12
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=assignment1project3.10.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/assignment1project3.10.tar
+CND_PACKAGE_NAME_Release=assignment1project3.12.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/assignment1project3.12.tar
 #
 # include compiler specific variables
 #
