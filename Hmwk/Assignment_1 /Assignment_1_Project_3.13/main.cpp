@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: OscJos
+ * Author: Oscar Mayorga 
  *
  * 
  * 
