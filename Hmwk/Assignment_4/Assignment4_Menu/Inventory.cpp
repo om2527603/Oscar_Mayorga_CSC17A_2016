@@ -1,13 +1,9 @@
-/* 
- * File:   Inventory.cpp
- * Author: Oscar Mayorga
- *
- * Created on April 25, 2016, 7:16 PM
- */
-
 #include <cstdlib>
 #include <iostream>
+
+//user Libraries
 #include "Inventory.h"
+
 using namespace std;
 
 Inventory::Inventory(){

@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: OscJos
+ * Author: Oscar Mayorga
  *
  * Created on April 25, 2016, 9:12 PM
  */
@@ -15,6 +15,7 @@
 #include "Info.h"
 #include "RetailItem.h"
 #include "Inventory.h"
+#include "TestScore.h"
 
 using namespace std;
 
@@ -60,7 +61,7 @@ void problem10();
            cout<<"Type 2 for problem 13.4"<<endl;
            cout<<"Type 3 for problem 13.5"<<endl;
            cout<<"Type 4 for problem 13.6"<<endl;
-           cout<<"Type 5 for problem 5"<<endl;
+           cout<<"Type 5 for problem 13.7"<<endl;
            cout<<"Type 6 for problem 6"<<endl;
            cout<<"Type 7 for problem 7"<<endl;
            cout<<"Type 8 for problem 8"<<endl;
@@ -95,7 +96,7 @@ void problem10();
     cin >> day;
     }while(!cin || day < 1 || day > 31);
     do{
-    cout << "Enter the year (no negative numbers allowed): ";
+    cout << "Enter the year (Positive Numbers Only): ";
     cin >> year;
     }while(!cin || year < 1);
     //call variables
@@ -182,7 +183,32 @@ void problem10();
     
     void problem5()
     {
-           cout<<"In problem # 5"<<endl<<endl;
+           cout<<"In problem # 13.7"<<endl<<endl;
+           
+           //declare variables
+	float a,b,c;		//test score variables
+	TestScore student;
+
+	//prompt for user input
+	cout<<"Please enter the score for test #1: ";
+	cin>>a;
+	cout<<"Please enter the score for test #2: ";
+	cin>>b;
+	cout<<"Please enter the score for test #3: ";
+	cin>>c;
+
+	//pass results into TestScores class for calculation
+	student.setOne(a);
+	student.setTwo(b);
+	student.setThree(c);
+	cout<<endl<<endl;
+	cout<<"Test #1: "<<student.getOne()<<endl;
+	cout<<"Test #2: "<<student.getTwo()<<endl;
+	cout<<"Test #3: "<<student.getThree()<<endl;
+	//display average score
+	cout<<"Average Test Score: "<<student.avgScore()<<endl;
+        
+        cout<<endl;
     }
     
     
