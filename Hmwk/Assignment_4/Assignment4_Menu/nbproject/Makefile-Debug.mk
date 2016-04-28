@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Date.o \
 	${OBJECTDIR}/Info.o \
 	${OBJECTDIR}/Inventory.o \
+	${OBJECTDIR}/Numbers.o \
 	${OBJECTDIR}/RetailItem.o \
 	${OBJECTDIR}/TestScore.o \
 	${OBJECTDIR}/main.o
@@ -81,6 +82,11 @@ ${OBJECTDIR}/Inventory.o: Inventory.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory.o Inventory.cpp
+
+${OBJECTDIR}/Numbers.o: Numbers.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Numbers.o Numbers.cpp
 
 ${OBJECTDIR}/RetailItem.o: RetailItem.cpp 
 	${MKDIR} -p ${OBJECTDIR}

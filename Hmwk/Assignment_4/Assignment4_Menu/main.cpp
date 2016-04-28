@@ -16,6 +16,7 @@
 #include "RetailItem.h"
 #include "Inventory.h"
 #include "TestScore.h"
+#include "Numbers.h"
 
 using namespace std;
 
@@ -62,7 +63,7 @@ void problem10();
            cout<<"Type 3 for problem 13.5"<<endl;
            cout<<"Type 4 for problem 13.6"<<endl;
            cout<<"Type 5 for problem 13.7"<<endl;
-           cout<<"Type 6 for problem 6"<<endl;
+           cout<<"Type 6 for problem 14.1"<<endl;
            cout<<"Type 7 for problem 7"<<endl;
            cout<<"Type 8 for problem 8"<<endl;
            cout<<"Type 9 for problem 9"<<endl;
@@ -214,9 +215,26 @@ void problem10();
     
     void problem6()
     {
-           cout<<"In problem # 6"<<endl<<endl;
+           cout<<"In problem # 14.1"<<endl<<endl;
+           
+           //declare variables
+	Numbers user;		//variable for users input to be translated
+
+	int num;
+	do{
+		//prompt for user input
+		cout<<"Enter a number to be translated into a phrase"<<endl;
+                cout<<"(Number Must Be < 9999):"<<endl;
+		cin>>num;
+                cout<<endl;
+	}while(num>9999 || num < 0);
+
+	user.setNum(num);
+	user.print();
+        
+        cout<<endl<<endl;
+            
     }
-    
     
     void problem7()
     {
