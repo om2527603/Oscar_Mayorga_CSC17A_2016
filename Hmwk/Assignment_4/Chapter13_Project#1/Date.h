@@ -2,7 +2,6 @@
  * File:   Date.h
  * Author: Oscar Mayorga
  *
- * Created on April 24, 2016, 9:33 PM
  */
 
 #ifndef DATE_H

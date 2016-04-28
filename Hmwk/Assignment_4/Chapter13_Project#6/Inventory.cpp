@@ -2,7 +2,6 @@
  * File:   Inventory.cpp
  * Author: Oscar Mayorga
  *
- * Created on April 25, 2016, 7:16 PM
  */
 
 #include <cstdlib>

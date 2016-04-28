@@ -2,7 +2,6 @@
  * File:   Info.cpp
  * Author: Oscar Mayorga 
  *
- * Created on April 24, 2016, 11:34 PM
  */
 
 #include <string>

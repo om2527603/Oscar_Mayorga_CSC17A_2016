@@ -1,10 +1,3 @@
-/* 
- * File:   Info.h
- * Author: OscJos
- *
- * Created on April 24, 2016, 10:13 PM
- */
-
 #ifndef INFO_H
 #define	INFO_H
 #include <string>

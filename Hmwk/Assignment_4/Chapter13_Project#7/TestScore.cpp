@@ -2,7 +2,6 @@
  * File:   TestScore.cpp
  * Author: OscJos
  *
- * Created on April 27, 2016, 6:33 PM
  */
 
 #include <cstdlib>

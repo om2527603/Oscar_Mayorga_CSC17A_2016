@@ -2,7 +2,6 @@
  * File:   RetailItem.h
  * Author: OscJos
  *
- * Created on April 25, 2016, 8:39 PM
  */
 
 #ifndef RETAILITEM_H

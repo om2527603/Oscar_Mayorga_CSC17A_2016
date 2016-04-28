@@ -2,7 +2,6 @@
  * File:   Inventory.h
  * Author: Oscar Mayorga
  *
- * Created on April 25, 2016, 6:35 PM
  */
 
 #ifndef INVENTORY_H

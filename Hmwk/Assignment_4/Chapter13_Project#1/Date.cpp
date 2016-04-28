@@ -2,7 +2,6 @@
  * File:   Date.cpp
  * Author: Oscar Mayorga
  *
- * Created on April 24, 2016, 9:53 PM
  */
 
 #include <iostream>

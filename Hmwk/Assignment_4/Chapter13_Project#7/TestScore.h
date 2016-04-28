@@ -2,7 +2,6 @@
  * File:   TestScore.h
  * Author: Oscar Mayorga 
  *
- * Created on April 27, 2016, 6:13 PM
  */
 
 #ifndef TESTSCORE_H

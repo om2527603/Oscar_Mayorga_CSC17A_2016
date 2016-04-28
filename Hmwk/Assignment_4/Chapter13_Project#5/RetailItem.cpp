@@ -2,7 +2,6 @@
  * File:   RetailItem.cpp
  * Author: OscJos
  *
- * Created on April 25, 2016, 9:00 PM
  */
 
 #include <cstdlib>
