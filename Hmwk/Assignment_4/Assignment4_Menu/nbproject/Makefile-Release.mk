@@ -39,8 +39,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/DayOfYear.o \
 	${OBJECTDIR}/Info.o \
 	${OBJECTDIR}/Inventory.o \
+	${OBJECTDIR}/Month.o \
 	${OBJECTDIR}/NumDays.o \
 	${OBJECTDIR}/Numbers.o \
+	${OBJECTDIR}/ParkedCar.o \
 	${OBJECTDIR}/RetailItem.o \
 	${OBJECTDIR}/TestScore.o \
 	${OBJECTDIR}/main.o
@@ -90,6 +92,11 @@ ${OBJECTDIR}/Inventory.o: Inventory.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory.o Inventory.cpp
 
+${OBJECTDIR}/Month.o: Month.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Month.o Month.cpp
+
 ${OBJECTDIR}/NumDays.o: NumDays.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -99,6 +106,11 @@ ${OBJECTDIR}/Numbers.o: Numbers.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Numbers.o Numbers.cpp
+
+${OBJECTDIR}/ParkedCar.o: ParkedCar.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParkedCar.o ParkedCar.cpp
 
 ${OBJECTDIR}/RetailItem.o: RetailItem.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -19,6 +19,8 @@
 #include "Numbers.h"
 #include "DayOfYear.h"
 #include "NumDays.h"
+#include "Month.h"
+#include "ParkedCar.h"
 
 using namespace std;
 
@@ -68,8 +70,8 @@ void problem10();
            cout<<"Type 6 for problem 14.1"<<endl;
            cout<<"Type 7 for problem 14.2"<<endl;
            cout<<"Type 8 for problem 14.4"<<endl;
-           cout<<"Type 9 for problem 9"<<endl;
-           cout<<"Type 10 for problem 10"<<endl;
+           cout<<"Type 9 for problem 14.7"<<endl;
+           cout<<"Type 10 for problem 14.14"<<endl;
            cout<<"Type 11 to exit \n"<<endl;
     }
     int getN()
@@ -270,12 +272,115 @@ void problem10();
     
     void problem9()
     {
-		cout<<"In problem # 7"<<endl<<endl;
+		cout<<"In problem # 14.7"<<endl<<endl;
+                
+                string month;
+    int monthNum;
+    cout << "Please type in a month: ";
+    cin >> month;
+    Month kyle(month);
+    kyle.print();
+    cout << endl;
+    cout << "The previous month is: ";
+    kyle--;
+    kyle.print();
+    cout << endl;
+    cout << "Please enter a month 1-12: ";
+    cin >> monthNum;
+    Month nick(monthNum);
+    nick.print();
+    cout << endl;
+    cout << "The next month is: ";
+    nick++;
+    nick.print();
+    
+    cout<<endl<<endl;
+                
     }
     
+    void ticketC();
     void problem10()
     {
-		cout<<"In problem # 7"<<endl<<endl;
+		cout<<"In problem # 14.14"<<endl<<endl;
+                
+    //declare variables
+    string make, color;
+    int licNum,model;
+    int hour = 60;
+    float time;
+    string name;
+    int badgeNum;
+    //call the class
+    ParkedCar carInfo;
+    
+    //prompt user for input 
+    cout<<"Please enter the following information \n";
+    cout<<"Enter the make of the car"<<endl;
+    cin>>make;
+    
+    cout<<"Enter the color of the car"<<endl;
+    cin>>color;
+    
+    cout<<"Enter the model"<<endl;
+    cin>>model;
+    
+    cout<<"Enter the license number"<<endl;
+    cin>>licNum;
+    
+    cout<<"Enter the number of minutes"<<endl;
+    cin>>time;
+    //call all the setter functions
+    carInfo.setColor(color);
+    carInfo.setMake(make);
+    carInfo.setModel(model);
+    carInfo.setLicNum(licNum);
+    carInfo.setTime(time);
+    
+    cout<<"The make of the car is: "<<carInfo.getMake()<<endl;  
+    cout<<"The color of the car is: "<<carInfo.getColor()<<endl;
+    cout<<"The model of the car is: "<<carInfo.getModel()<<endl;
+    cout<<"The license number is: "<<carInfo.getLicNum()<<endl;
+    cout<<"The time is: "<<carInfo.getTime()<<endl;
+    cout<<endl;
+    
+    cout<<"Parking Meter object"<<endl;
+    ParkingMeter minutes;
+    minutes.setMinutes(time);
+    
+    cout<<"The n umber of minutes is: "<<minutes.getMinutes()<<endl;
+    
+    //ParkingTicket object
+    ParkingTicket ticket;
+    
+    cout<<"~~~~~~~~Car Information for the ticket~~~~~~~~~~"<<endl;
+    cout<<"The make of the car is: "<<carInfo.getMake()<<endl;  
+    cout<<"The color of the car is: "<<carInfo.getColor()<<endl;
+    cout<<"The model of the car is: "<<carInfo.getModel()<<endl;
+    cout<<"The license number is: "<<carInfo.getLicNum()<<endl;
+    cout<<"The time is: "<<carInfo.getTime()<<endl;
+    
+    if (time > hour*time)
+    {
+        time + 25;
+    }
+    
+    PoliceOfficer police;
+    
+    cout<<"Enter the name of the police officer"<<endl;
+    cin>>name;
+    
+    cout<<"Enter the badge number of the police officer"<<endl;
+    cin>>badgeNum;
+    
+    police.setName(name);
+    police.setBadge(badgeNum);
+    
+    
+    cout<<"Police information: "<<endl;
+    cout<<"Name: "<<police.getName()<<endl;
+    cout<<"Badge Number: "<<police.getBadge()<<endl;    
+    
+                
     }
     
     

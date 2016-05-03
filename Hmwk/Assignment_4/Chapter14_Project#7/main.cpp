@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
     nick++;
     nick.print();
     
-    cout<<endl<<endl<<endl;
+    cout<<endl<<endl;
 
     return 0;
 }
