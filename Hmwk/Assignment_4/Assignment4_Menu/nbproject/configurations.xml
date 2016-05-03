@@ -5,8 +5,10 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Date.h</itemPath>
+      <itemPath>DayOfYear.h</itemPath>
       <itemPath>Info.h</itemPath>
       <itemPath>Inventory.h</itemPath>
+      <itemPath>NumDays.h</itemPath>
       <itemPath>Numbers.h</itemPath>
       <itemPath>RetailItem.h</itemPath>
       <itemPath>TestScore.h</itemPath>
@@ -19,8 +21,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Date.cpp</itemPath>
+      <itemPath>DayOfYear.cpp</itemPath>
       <itemPath>Info.cpp</itemPath>
       <itemPath>Inventory.cpp</itemPath>
+      <itemPath>NumDays.cpp</itemPath>
       <itemPath>Numbers.cpp</itemPath>
       <itemPath>RetailItem.cpp</itemPath>
       <itemPath>TestScore.cpp</itemPath>
@@ -52,6 +56,10 @@
       </item>
       <item path="Date.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DayOfYear.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DayOfYear.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Info.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Info.h" ex="false" tool="3" flavor2="0">
@@ -59,6 +67,10 @@
       <item path="Inventory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Inventory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NumDays.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NumDays.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Numbers.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -99,6 +111,10 @@
       </item>
       <item path="Date.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DayOfYear.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DayOfYear.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Info.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Info.h" ex="false" tool="3" flavor2="0">
@@ -106,6 +122,10 @@
       <item path="Inventory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Inventory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NumDays.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NumDays.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Numbers.cpp" ex="false" tool="1" flavor2="0">
       </item>

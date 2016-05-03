@@ -36,8 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Date.o \
+	${OBJECTDIR}/DayOfYear.o \
 	${OBJECTDIR}/Info.o \
 	${OBJECTDIR}/Inventory.o \
+	${OBJECTDIR}/NumDays.o \
 	${OBJECTDIR}/Numbers.o \
 	${OBJECTDIR}/RetailItem.o \
 	${OBJECTDIR}/TestScore.o \
@@ -73,6 +75,11 @@ ${OBJECTDIR}/Date.o: Date.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Date.o Date.cpp
 
+${OBJECTDIR}/DayOfYear.o: DayOfYear.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DayOfYear.o DayOfYear.cpp
+
 ${OBJECTDIR}/Info.o: Info.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -82,6 +89,11 @@ ${OBJECTDIR}/Inventory.o: Inventory.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory.o Inventory.cpp
+
+${OBJECTDIR}/NumDays.o: NumDays.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NumDays.o NumDays.cpp
 
 ${OBJECTDIR}/Numbers.o: Numbers.cpp 
 	${MKDIR} -p ${OBJECTDIR}

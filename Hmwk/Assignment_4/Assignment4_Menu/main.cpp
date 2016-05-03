@@ -17,6 +17,8 @@
 #include "Inventory.h"
 #include "TestScore.h"
 #include "Numbers.h"
+#include "DayOfYear.h"
+#include "NumDays.h"
 
 using namespace std;
 
@@ -64,8 +66,8 @@ void problem10();
            cout<<"Type 4 for problem 13.6"<<endl;
            cout<<"Type 5 for problem 13.7"<<endl;
            cout<<"Type 6 for problem 14.1"<<endl;
-           cout<<"Type 7 for problem 7"<<endl;
-           cout<<"Type 8 for problem 8"<<endl;
+           cout<<"Type 7 for problem 14.2"<<endl;
+           cout<<"Type 8 for problem 14.4"<<endl;
            cout<<"Type 9 for problem 9"<<endl;
            cout<<"Type 10 for problem 10"<<endl;
            cout<<"Type 11 to exit \n"<<endl;
@@ -238,13 +240,31 @@ void problem10();
     
     void problem7()
     {
-		cout<<"In problem # 7"<<endl<<endl;
+		cout<<"In problem # 14.2"<<endl<<endl;
+                
+                //Change Values to get different days.
+    DayOfYear a(234), b(21), c(336);
+    cout<<"enter"<<endl;
+    a.print();
+    b.print();
+    c.print();
+                
     }
     
    
     void problem8()
     {
-		cout<<"In problem # 7"<<endl<<endl;
+		cout<<"In problem # 14.4"<<endl<<endl;
+                
+                int hours;
+    cout << "Please Enter how many hours you worked this week: ";
+    cin >> hours;
+    NumDays tri(hours);
+    cout << "Your hours converted into days are: ";
+    tri.convert(hours);
+    
+    cout<<endl<<endl<<endl;
+                
     }
     
     
