@@ -2,7 +2,6 @@
  * File:   AryStruc.h
  * Author: Oscar
  *
- * Created on April 7, 2016, 1:25 PM
  */
 
 #ifndef ARYSTRUC_H
