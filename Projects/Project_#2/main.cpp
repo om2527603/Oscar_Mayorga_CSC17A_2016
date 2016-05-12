@@ -19,9 +19,18 @@ void GameRules();
 
 
 int main(int argc, char** argv) {
+    //Call function to output the Game's Rules. 
+    GameRules();
     
     
 
     return 0;
 }
 
+//Function outputting the rules at the beginning of the Game
+void GameRules() {
+    
+    cout<<"********** Minesweeper Rules **********"<<endl;
+    cout<<"--- Please read the Rules carefully; GOODLUCK and ENJOY!!"<<endl;
+    
+                  }
