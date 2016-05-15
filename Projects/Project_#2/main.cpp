@@ -12,15 +12,36 @@
 #include <vector>
 #include <iomanip>
 
-using namespace std;
+//user libraries 
+#include "Templates.h"
+#include "Minesweeper.h"
 
 //function prototypes
 void GameRules();
 
+using namespace std;
 
 int main(int argc, char** argv) {
     //Call function to output the Game's Rules. 
     GameRules();
+    
+    //Seed Genarator 
+    srand(static_cast<unsigned int>(time(0)));
+    Game<GameBoard> m(new Minesweeper(10,10));
+    
+    //Exception 
+    try {
+        m->setUpG();
+    }
+    
+    //Error
+     catch (Minesweeper::wrong) {
+        cout << "Size was invalid\n";
+    }
+    catch (const char* s) {
+        cout << s << endl;
+    }
+    
     
     
 
