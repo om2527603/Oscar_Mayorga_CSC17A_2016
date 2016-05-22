@@ -24,6 +24,28 @@ class Game {
                 
 };
 
+template<class T>
+T* Game<T>::operator->() const {
+    // only return p if it points to something
+    if (p)
+        return p;
+    return 0;
+    
+}
+
+
+template<class T>
+T& Game<T>::operator*() const{
+    if (p)
+        return *p;
+}
+
+
+template<class T>
+Game<T>& Game<T>::operator=(const T& rhs) {
+    p = &rhs;
+}
+
 
 #endif	/* TEMPLATES_H */
 
