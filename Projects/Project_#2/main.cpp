@@ -51,5 +51,9 @@ void GameRules() {
     
     cout<<"********** Minesweeper Rules **********"<<endl;
     cout<<"--- Please read the Rules carefully; GOODLUCK and ENJOY!!"<<endl;
+    cout<<"to start with the game, first choose the level of difficulty you would like: "<<endl;
+    cout<<"Easy"<<endl;
+    cout<<"Normal"<<endl;
+    cout<<"Hard"<<endl;
     
                   }
