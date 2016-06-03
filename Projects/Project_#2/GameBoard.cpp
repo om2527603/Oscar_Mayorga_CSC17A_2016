@@ -1,23 +1,17 @@
 /* 
  * File:   GameBoard.cpp
- * Author: OscJos
+ * Author: Oscar Mayorga
  *
  */
 
-//Libraries
-#include <cstdlib>
 #include <iostream>
 #include "gameBoard.h"
 
 using namespace std;
 
-/*
- * 
- */
-
-
-// Function that creates the grid where the game will be play
+// Function that creates the grid on which game will be played
 void GameBoard::create(int row, int col) {
+    
     // dinamically create a Minesweeper
     rows=row;
     cols = col;
@@ -39,9 +33,11 @@ void GameBoard::clear() {
 
 // Function deallocates memory
 void GameBoard::destroy() {
+    
     // delete each dynamically allocated row
     for (int i = 0; i != rows; ++i)
         delete[] data[i];
+        
     // delete the dynamically allocated structure
     delete data;
 }
@@ -74,6 +70,3 @@ void GameBoard::loadGame() {
 void GameBoard::setUpG() {
     cout << "Wrong data"<<endl;
 }
-
-
-

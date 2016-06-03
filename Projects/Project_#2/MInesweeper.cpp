@@ -4,7 +4,7 @@
  *
  */
 
-//System Libraries
+//System libraries
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
@@ -12,120 +12,137 @@
 #include <string>
 #include <iomanip>
 
+//User Libraries
 #include "Minesweeper.h"
-
-//User Library
-
 
 using namespace std;
 
-/*
- * 
- */
-void Minesweeper::create (int row, int col) {
+// Function gets the user name as a string converts it to a char array
+// for the 1d dynamic array requirement
+char* Minesweeper::userName() {
+    cout << "Enter your username: "<<endl;
+    cout << "(No spaces, you can use only characters and numbers but no spaces!!) "<<endl;
+    string in;
+    cin >> in;
+    cout<<endl;
     
-//Create Minesweeper dinamically 
-    rows=row; 
-     cols = col;
+    typedef string::size_type sType;
+    sType size = in.size();
+    // make room for '\0'
+    char *name = new char[size+1];
+    for (sType i = 0; i != size; ++i) {
+        *(name+i) = in[i];
+    }
+    *(name+size+1) = '\0';
     
-    // Set up the rows
-    data = new int *[rows];
-    
-    // Create each column
-    for (int row = 0; row != rows; ++row)
-        data[row] = new int [cols];
+    return name;
 }
 
-void Minesweeper::setRows (int row) {
+void Minesweeper::setUpG() {
     
-    if ( row <= 0 )
-        throw wrong();
-    rows = row;
-    
-}
-
-void Minesweeper::setCols (int col) {
-    
-    if (col <= 0 )
-        throw wrong();
-    cols = col;
-    
-}
-
-void Minesweeper::prompt() {
-    
-     cout << "Please Enter the number of rows(1-10)\n"<<endl;
-    cout<<"Area will be rows x rows in size: "<<endl;
-    int row;
-    cin >> row;
-    // invalid sizes
-    if (row > 10 || row < 1)
-        throw wrong();
-    rows = row;
-    cols = row;
-    char diff;
-    cout << "Enter the difficulty (make sure is a lowercase letter)\n"
-    "e = Easy\t n = Normal\t h = Hard\n";
-    cin >> diff;
-    mines = nMines(intToDiff(diff));
-    
-}
-
-//Set Up GAME
-void Minesweeper::setUpG () {
-    
-     // Get the user name
+    // Get the user name
     char *player = userName();
+    
     // ask user if they want to play
     cout << "Hello " << player
          << ", Would you like to play minesweeper?"<<endl;
-           cout<< "Enter 'y' if yes or enter 'n' if not"<<endl;
+    cout<<"Enter 'y' if yes or enter 'n' if not"<<endl;
     char ans;
     cin >> ans;
+    cout<<endl;
     
     // play if answer is yes
     if (ans == 'y' || ans == 'Y') {
-        cout << "would you like load previous settings?"<<endl;
-        cout<<"(enter 'y' if yes enter 'n' if not)"<<endl;
-        char ans2;
-        cin >> ans2;
-        if ( ans2 == 'y' || ans2 == 'Y') {
-            loadGame();
-        }
-        else
-            
-    // Get game information from user
-        prompt();
-    if (isValidIn()) {
-        while (ans == 'y' || (ans == 'Y'&& isValidIn())) {
-            playGame();
-            cout << endl;
-            cin.ignore();
-            cout << "Would you like to play again " << player << "? ";
-            cin >> ans;
-            cout << endl;
-            
-    // Get new data only if user wants to continue
-    if (ans =='y' || ans == 'Y') {
-        prompt();
-        clear();
+        //cout << "Please Enter n to start the game!!"<<endl;
+        //char ans2;
+        //cin >> ans2;
+        //cout<<endl;
+        //if ( ans2 == 'y' || ans2 == 'Y') {
+        //}
+        //else
+            // Get game information from user
+            prompt();
+        if (isValidIn()) {
+            while (ans == 'y' || ans == 'Y'&& isValidIn()) {
+                playGame();
+                cout << endl;
+                cin.ignore();
+                cout << "Would you like to play again " << player << "? "<<endl;
+                cin >> ans;
+                cout << endl;
+                
+                // Get new data only if user wants to continue
+                if (ans =='y' || ans == 'Y') {
+                    prompt();
+                    clear();
+                }
             }
         }
+        // Information was invalid
+        else
+            throw wrong();
     }
-        
-    // Information was invalid
-    else
-       throw wrong();
-    }
-    
-    cout << "Game is Over.\n";
+    cout << "Game is Over."<<endl;
     
     // Cleanup
     delete player;
     
     cout << endl;
     cout << "Goodbye"<<endl;
+}
+
+void Minesweeper::prompt() {
+    cout << "Enter the number of rows(0-10)"<<endl;
+    cout<<"The Area will be rows x rows: "<<endl;
+    int row;
+    cin >> row;
     
+    // invalid sizes
+    if (row > 10 || row < 1)
+        throw wrong();
+    rows = row;
+    cols = row;
+    char diff;
+    cout << "Please Enter the difficulty (make sure is a lowercase letter)"<<endl;
+    cout<<"e=Easy"<<endl;
+    cout<<"n=Normal"<<endl;
+    cout<<"h=Hard"<<endl;
+    cin >> diff;
+    mines = nMines(intToDiff(diff));
+}
+
+void Minesweeper::create(int row, int col) {
+    
+    
+    // dinamically create a Minesweeper
+    rows=row;
+    cols = col;
+    
+    // Set up the rows
+    data = new int *[rows];
+    
+    //Create each column
+    for (int row = 0; row != rows; ++row)
+        data[row] = new int [cols];
+}
+
+void Minesweeper::setRows(int row) {
+    if ( row <= 0 )
+        throw wrong();
+    rows = row;
+}
+
+void Minesweeper::setCols(int col) {
+    if (col <= 0 )
+        throw wrong();
+    cols = col;
+}
+
+// Function returns true if input was valid
+bool Minesweeper::isValidIn() const{
+    
+//make sure that the number of mines does not exceed the number of spots available and that mines exist
+    return (((rows * cols) > mines) && (mines>0));
 }
 
 // Play a game of minesweeper
@@ -137,30 +154,26 @@ void Minesweeper::playGame() {
     int turn = 0;
     int initialTime = static_cast<unsigned int>(time(0));
     do {
-        
         int begTime = static_cast<unsigned int>(time(0));
         cout << "Turn: " << turn++ << endl;
         // Select the row
         do {
-            cout << "Enter -0 to save the settings and exit"<<endl;
+            cout << "Enter (-1) to exit"<<endl;
             cout << "Enter the row " << 0 << "-" << rows-1 << ": "<<endl;
             cin >> row;
             
-        // User wants to save the game
-        // save the game and exit
-        if ( row == -0) {
-            saveGame();
-            return;
-        }
-            
+            // User wants to save the game
+            // save the game and exit
+            if ( row == -1) {
+                saveGame();
+                return;
+            }
             // check bounds
         } while (row < 0 || row >= rows);
-        
         // Select the column
         do {
-            cout << "Enter the column " << 0 << "-" << cols-1 << ": ";
+            cout << "Enter the column " << 0 << "-" << cols-1 << ": "<<endl;
             cin >> col;
-            
             // check bounds
         } while (col < 0 || col >= cols);
         
@@ -188,26 +201,8 @@ void Minesweeper::playGame() {
     print();
 }
 
-// Function gets the user name as a string 
 
-char* Minesweeper::userName() {
-    cout << "Enter your username: ";
-    string in;
-    cin >> in;
-    
-    typedef string::size_type sType;
-    sType size = in.size();
-    // make room for '\0'
-    char *name = new char[size+1];
-    for (sType i = 0; i != size; ++i) {
-        *(name+i) = in[i];
-    }
-    *(name+size+1) = '\0';
-    
-    return name;
-}
-
-// Function that clears the grid where the game will be play
+// Function that clears the grid on which game will be played
 void Minesweeper::clear() {
     
     // Make sure each square is empty
@@ -216,7 +211,8 @@ void Minesweeper::clear() {
             data[i][j] = Minesweeper::EMPTY;
 }
 
-// Function return the Minesweeper::Difficulty type from the int variable
+// Function return the Minesweeper::Difficulty type from
+// the int variable
 Minesweeper::Difficulty Minesweeper::intToDiff(char choice) {
     switch (choice) {
         case 'e':
@@ -233,9 +229,10 @@ Minesweeper::Difficulty Minesweeper::intToDiff(char choice) {
     }
 }
 
-// Functions prints the Minesweeper with all the squares revealed, used mostly after player loses
+// Functions prints the Minesweeper with all the squares revealed.
+// used mostly after player loses
 void Minesweeper::print() const {
-    cout << "Here's what the board looked like\n";
+    cout << "Here's what the board looked like"<<endl;
     for (int row = 0; row != rows; ++row){
         for (int col = 0; col != cols; ++col) {
             //
@@ -310,24 +307,25 @@ void Minesweeper::setMines() {
                 // place mines if result of rand()%15 == 0
                 if ((rand() % 100) % 10 == 0){
                     
-    //only place mines if mines are still available and current space is empty
-                if (minecpy && data[i][j] == Minesweeper::EMPTY) {
-                    
-                    // set the mine
-                    data[i][j] = Minesweeper::MINE;
-                    
-                    // decrement number of mines available
-                    --minecpy;
-           }
-         }
-       }
-     }
+                    //only place mines if mines are still available
+                    // and current space is empty
+                    if (minecpy && data[i][j] == Minesweeper::EMPTY) {
+                        
+                        // set the mine
+                        data[i][j] = Minesweeper::MINE;
+                        
+                        // decrement number of mines available
+                        --minecpy;
+                    }
+                }
+            }
+        }
     }
 }
 
 // Function returns how  many 'flag' elements surround a given square
 int Minesweeper::nAdjacent(int row, int col, int FLAG) const{
-    int nAd=0;              // the number of adjacent mines
+    int nAd=0;              /// the number of adjacent mines
     
     // not on first or last row or first or last column
     // most of the searches take place in this area
@@ -411,18 +409,17 @@ int Minesweeper::nAdjacent(int row, int col, int FLAG) const{
     return nAd;
 }
 
-// Function returns true if there are 0 land mines adjacent to selected square
+// Function returns true if
+// there are 0 landmines adjacent to selected square
 bool Minesweeper::isClear(int row, int col) const {
     if (nAdjacent(row, col))
         return false;            // nAdjacent returned 1 or more
     return true;                 // nAdjacent returned 0
 }
 
-// Clear an area whose values are CLEAR
-// i.e 0 adjacent mines
+// Clear an area whose values are CLEAR i.e 0 adjacent mines
 void Minesweeper::showZeros(int row, int col) {
-    
-    //check bounds
+    // check bounds
     if ( row >= rows || row < 0 || col >= cols || col < 0)
         return;
     if (isClear(row, col) && data[row][col] != Minesweeper::CLEAR){
@@ -490,9 +487,10 @@ bool Minesweeper::hasWon() const {
     for (int i = 0; i != rows; ++i)
         for (int j = 0; j != cols; ++j)
             
-// if there are empty spaces player has not won
-    if (data[i][j] == Minesweeper::EMPTY)
-    return false;
+            // if there are empty spaces player has not won
+            if (data[i][j] == Minesweeper::EMPTY)
+                return false;
+        
     // there were no empty spaces left. Player has won
     return true;
 }
@@ -544,16 +542,16 @@ void Minesweeper::saveGame() {
     saveFile.close();
 }
 
-// Function prints the data variable from the Minesweeper structure
-// writen to a binary file
+//Function prints the data variable from the Minesweeper structure
+//writen to a binary file
 void Minesweeper::loadGame() {
     fstream saveFile("gameSave", ios::in | ios::binary);
     if (!saveFile.is_open())
-        throw "No previous settings found\n";
+     throw "No previous settings found\n";
 
-    saveFile.read(reinterpret_cast<char*>(this), sizeof(*this));
-    //print();
-    saveFile.close();
+   saveFile.read(reinterpret_cast<char*>(this), sizeof(*this));
+   print();
+   saveFile.close();
     
  
 }
@@ -567,3 +565,4 @@ Minesweeper& Minesweeper::operator=(const Minesweeper &rhs) {
     }
     return *this;
 }
+
