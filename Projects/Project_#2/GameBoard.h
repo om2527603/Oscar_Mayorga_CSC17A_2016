@@ -17,12 +17,14 @@ class GameBoard: public Abstracts{
 private:
     
 protected:
+    
     int **data;
     int rows;
     int cols;
     virtual void create(int, int);
 
 public:
+    
     //If user tries to set negative rows or columns
     class wrong{};
     
@@ -34,8 +36,11 @@ public:
     virtual int getRows() const {return rows;}
     virtual int getCols() const {return cols;}
     virtual void clear();
-    virtual void setUpG();//setup the game
+    //setup the game
+    virtual void setUpG();
+    //load the game
     virtual void loadGame();
+    //Print
     virtual void print() const;
     int* operator[](int index) { return data[index];}
     int* operator[](int index) const { return data[index];}

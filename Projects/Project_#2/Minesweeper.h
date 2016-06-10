@@ -10,6 +10,8 @@
 
 //System Library 
 #include <string> 
+
+
 //User Library 
 #include "GameBoard.h"
 
@@ -21,6 +23,7 @@ public GameBoard {
     private: 
         // Determines how many mines to set
              enum Difficulty {EASY, NORMAL, HARD};
+             
         // Flags representing various square possibilities
              enum Squares {EMPTY=10, MINE, CLEAR, LOSER};
              
@@ -45,6 +48,7 @@ public GameBoard {
         void prompt (); 
         char *userName();
 public: 
+    
     //constructors 
     Minesweeper(int row, int col):GameBoard(row, col)
                                 {clear();}
